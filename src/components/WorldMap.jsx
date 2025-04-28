@@ -4,6 +4,7 @@ import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 import axios from "axios";
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
+const API_BASE = "https://interactive-map-backend.onrender.com";
 
 const WorldMap = () => {
   const [selectedCountry, setSelectedCountry] = useState(null);
@@ -17,7 +18,7 @@ const WorldMap = () => {
   useEffect(() => {
     const fetchCountries = async () => {
       try {
-        const res = await axios.get("http://localhost:8080/countries", {
+        const res = await axios.get(`${API_BASE}/countries`, {
           headers: { Authorization: `${token}` },
         });
 
@@ -43,7 +44,7 @@ const WorldMap = () => {
   
     try {
       const res = await axios.post(
-        "http://localhost:8080/ai",
+        `${API_BASE}/ai`,
         { countryName: name },
         { headers: { Authorization: `${token}` } }
       );
@@ -58,7 +59,7 @@ const WorldMap = () => {
     if (selectedCountry) {
       try {
         await axios.post(
-          "http://localhost:8080/countries",
+          `${API_BASE}/countries`,
           {
             countryISO: selectedCountry,
             status: status === "visited" ? "visited" : "want",
@@ -88,7 +89,7 @@ const WorldMap = () => {
       const token = localStorage.getItem("token");
       if (token) {
         try {
-          await axios.delete(`http://localhost:8080/countries/${selectedCountry}`, {
+          await axios.delete(`${API_BASE}/countries/${selectedCountry}`, {
             headers: {
               Authorization: `${token}`,
             },
