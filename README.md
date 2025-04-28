@@ -14,7 +14,7 @@ https://interactive-map-alpha-ochre.vercel.app
     ```
 2. Перейдите в папку проекта и установите зависимости:
     ```bash
-    cd your-repo
+    cd interactive-map-frontend.git
     npm install --legacy-peer-deps 
     ```
 3. Запустите фронтенд:
