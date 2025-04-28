@@ -9,20 +9,20 @@
 
 1. Клонируйте репозиторий:
     ```bash
-    git clone https://github.com/your-username/your-repo.git
+    git clone https://github.com/dimerryy/interactive-map-frontend.git
     ```
 2. Перейдите в папку проекта и установите зависимости:
     ```bash
     cd your-repo
-    npm install
+    npm install --legacy-peer-deps 
     ```
 3. Запустите фронтенд:
     ```bash
     npm run dev
     ```
-4. Перейдите в серверную папку (если отделена) и запустите сервер:
+4. Перейдите в серверную папку  и запустите сервер:
     ```bash
-    go run main.go
+    git clone https://github.com/dimerryy/interactive-map-backend.git
     ```
 
 > Убедитесь, что файл `.env` содержит валидный API-ключ OpenAI.
